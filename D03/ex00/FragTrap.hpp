@@ -16,8 +16,12 @@ class FragTrap {
 
 public:
 
+    FragTrap(void);
     FragTrap(string);
-    ~FragTrap();
+    ~FragTrap(void);
+
+//    Operator
+    FragTrap  &operator=(FragTrap const &overload);
 
 //    Health
     void        takeDamage(unsigned amount);
@@ -66,6 +70,7 @@ private:
     unsigned    _energyPoints;
     unsigned    _maxEnergyPoints;
     unsigned    _armourDamageReduction;
+    unsigned    _level;
 
 //    Damage values
     //  standard

@@ -34,7 +34,7 @@ int main() {
             cout << fr4g_tp.getName() << " Leveled up" << endl;
             return (0);
         } else if (merc.getHitPoints() <= 0) {
-            cout << merc.getName() << "Joined the FireHawk in eternal flames" << endl;
+            cout << merc.getName() << " Joined the FireHawk in eternal flames" << endl;
             return (0);
         }
 
@@ -58,7 +58,7 @@ int main() {
             cout << fr4g_tp.getName() << " Leveled up" << endl;
             return (0);
         } else if (merc.getHitPoints() <= 0) {
-            cout << merc.getName() << "Joined the FireHawk in eternal flames" << endl;
+            cout << merc.getName() << " Joined the FireHawk in eternal flames" << endl;
             return (0);
         }
 
@@ -70,7 +70,7 @@ int main() {
             cout << fr4g_tp.getName() << ": Activating VaultHunter.EXE" << endl;
             merc.takeDamage(fr4g_tp.vaultHunter_dot_exe(merc.getName()));
         } else if (merc.getHitPoints() <= 0) {
-            cout << merc.getName() << "Joined the FireHawk in eternal flames" << endl;
+            cout << merc.getName() << " Joined the FireHawk in eternal flames" << endl;
             cout << fr4g_tp.getName() << " Leveled up" << endl;
             return (0);
         } else if (fr4g_tp.getHitPoints() <= 0) {

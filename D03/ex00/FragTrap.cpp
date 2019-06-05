@@ -4,6 +4,10 @@
 
 #include "FragTrap.hpp"
 
+FragTrap::FragTrap(void) {
+    return;
+}
+
 FragTrap::FragTrap(string name) {
 
     if (name == "FR4G_TP") {
@@ -17,6 +21,7 @@ FragTrap::FragTrap(string name) {
     this->_energyPoints = 100;
     this->_maxEnergyPoints = 100;
     this->_armourDamageReduction = 5;
+    this->_level = 1;
     //  standard
     this->_rangedAttackDamage = 20;
     this->_meleeAttackDamage = 30;
@@ -27,6 +32,7 @@ FragTrap::FragTrap(string name) {
     this->_laserInfernoAttackDamage = 50;
     this->_torgueFiestaAttackDamage = 60;
 
+    return;
 }
 
 FragTrap::~FragTrap() {
@@ -40,6 +46,30 @@ FragTrap::~FragTrap() {
 
     return;
 }
+
+/* <------------------>    Operator Below    <------------------> */
+
+FragTrap
+&FragTrap::operator= (FragTrap const &overload)
+{
+    this->_name = overload._name;
+    this->_hitPoints = overload._hitPoints;
+    this->_maxHitPoints = overload._maxHitPoints;
+    this->_energyPoints = overload._energyPoints;
+    this->_maxEnergyPoints = overload._maxEnergyPoints;
+    this->_level = overload._level;
+    this->_meleeAttackDamage = overload._meleeAttackDamage;
+    this->_rangedAttackDamage = overload._rangedAttackDamage;
+    this->_armourDamageReduction = overload._armourDamageReduction;
+    this->_funZerkerAttackDamage = overload._funZerkerAttackDamage;
+    this->_meatUnicycleAttackDamage = overload._meatUnicycleAttackDamage;
+    this->_shhhTrapAttackDamage = overload._shhhTrapAttackDamage;
+    this->_laserInfernoAttackDamage = overload._laserInfernoAttackDamage;
+    this->_torgueFiestaAttackDamage = overload._torgueFiestaAttackDamage;
+    return (*this);
+}
+
+/* <------------------>    Operator Below    <------------------> */
 
 /* <------------------>    GetMethods Below    <------------------> */
 
@@ -64,7 +94,6 @@ FragTrap::getMeleeAttackDamage(void) {
 }
 
 /* <------------------>    GetMethods Above    <------------------> */
-
 
 /* <------------------>    HealthMethods Below    <------------------> */
 
@@ -105,7 +134,6 @@ FragTrap::repair(unsigned amount) {
 }
 
 /* <------------------>    HealthMethods Above    <------------------> */
-
 
 /* <------------------>    AttackMethods Below    <------------------> */
 
@@ -179,7 +207,6 @@ FragTrap::torgueFiestaAttack(string const &target) {
 
 /* <------------------>    AttackMethods Above    <------------------> */
 
-
 /* <------------------>    VaultHunter.exe Below    <------------------> */
 
 unsigned
@@ -220,4 +247,3 @@ FragTrap::vaultHunter_dot_exe(const string &target) {
 }
 
 /* <------------------>    VaultHunter.exe Above    <------------------> */
-
