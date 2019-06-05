@@ -46,6 +46,7 @@ public:
     string      getName(void);
     unsigned    getHitPoints(void);
     unsigned    getEnergyPoints(void);
+    unsigned    getArmourDamageReduction(void);
 
 //    Get damage values
     // standard

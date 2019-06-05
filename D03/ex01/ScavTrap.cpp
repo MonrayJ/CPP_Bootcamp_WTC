@@ -37,8 +37,7 @@ ScavTrap::~ScavTrap() {
     if (this->_hitPoints <= 0) {
         cout << "Defeated!! impossible" << endl;
         return;
-    }
-    else
+    } else
         cout << "Go back from whence you came!" << endl;
     return;
 }
@@ -46,8 +45,7 @@ ScavTrap::~ScavTrap() {
 /* <------------------>    Operator Below    <------------------> */
 
 ScavTrap
-&ScavTrap::operator= (ScavTrap const &overload)
-{
+&ScavTrap::operator=(ScavTrap const &overload) {
     this->_name = overload._name;
     this->_hitPoints = overload._hitPoints;
     this->_maxHitPoints = overload._maxHitPoints;
@@ -75,7 +73,7 @@ ScavTrap::getName(void) {
 }
 
 unsigned
-ScavTrap::getHitPoints(){
+ScavTrap::getHitPoints() {
     return (this->_hitPoints);
 }
 
@@ -87,6 +85,11 @@ ScavTrap::getRangedAttackDamage(void) {
 unsigned
 ScavTrap::getMeleeAttackDamage(void) {
     return (this->_meleeAttackDamage);
+}
+
+unsigned
+ScavTrap::getArmourDamageReduction(void) {
+    return (this->_armourDamageReduction);
 }
 
 /* <------------------>    GetMethods Above    <------------------> */
@@ -213,37 +216,40 @@ ScavTrap::challengeNewcomer(const string &target) {
 
     cout << this->_name << ": Aha ha ha, walked right into it..." << endl;
 
-    int i;
-    srand (time(NULL));
-    i = rand() % 5 + 1;
+    int arr[] = {1, 2, 3, 4, 5};
+    int random;
+
+    random = rand() % 5;
 
     if (this->_energyPoints >= 25) {
-        if (i == 1) {
+        if (arr[random] == 1) {
             this->spikeTrapAttack(target);
+            this->_energyPoints -= 25;
             return this->_spikeTrapAttackDamage;
-        }
-        if (i == 2) {
+        } else if (arr[random] == 2) {
             this->tripWireAttack(target);
+            this->_energyPoints -= 25;
             return this->_tripWireAttackDamage;
-        }
-        if (i == 3) {
+        } else if (arr[random] == 3) {
             this->freezeTrapAttack(target);
+            this->_energyPoints -= 25;
             return this->_freezeTrapAttackDamage;
-        }
-        if (i == 4) {
+        } else if (arr[random] == 4) {
             this->mountedTurretAttack(target);
+            this->_energyPoints -= 25;
             return this->_mountedTurretAttackDamage;
-        }
-        if (i == 5) {
+        } else if (arr[random] == 5) {
             this->explosiveBarrelAttack(target);
+            this->_energyPoints -= 25;
             return this->_explosiveBarrelAttackDamage;
+        } else {
+            this->_energyPoints -= 25;
+            return (0);
         }
-        this->_energyPoints -= 25;
     } else {
         cout << this->_name << ": Noo!! Eriduim cells need be replenished!!" << endl;
         return (0);
     }
-    return (0);
 }
 
 /* <------------------>    VaultHunter.exe Above    <------------------> */

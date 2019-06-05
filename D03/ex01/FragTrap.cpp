@@ -37,8 +37,7 @@ FragTrap::~FragTrap() {
     if (this->_hitPoints <= 0) {
         cout << "Oh yeah? Well, uh... yeah." << endl;
         return;
-    }
-    else
+    } else
         cout << "Don't tell me that wasn't awesome" << endl;
     return;
 }
@@ -46,8 +45,7 @@ FragTrap::~FragTrap() {
 /* <------------------>    Operator Below    <------------------> */
 
 FragTrap
-&FragTrap::operator= (FragTrap const &overload)
-{
+&FragTrap::operator=(FragTrap const &overload) {
     this->_name = overload._name;
     this->_hitPoints = overload._hitPoints;
     this->_maxHitPoints = overload._maxHitPoints;
@@ -75,7 +73,7 @@ FragTrap::getName(void) {
 }
 
 unsigned
-FragTrap::getHitPoints(){
+FragTrap::getHitPoints() {
     return (this->_hitPoints);
 }
 
@@ -87,6 +85,11 @@ FragTrap::getRangedAttackDamage(void) {
 unsigned
 FragTrap::getMeleeAttackDamage(void) {
     return (this->_meleeAttackDamage);
+}
+
+unsigned
+FragTrap::getArmourDamageReduction(void) {
+    return (this->_armourDamageReduction);
 }
 
 /* <------------------>    GetMethods Above    <------------------> */
@@ -155,7 +158,7 @@ FragTrap::meleeAttack(const string &target) {
 }
 
 void
-FragTrap::funZerkerAttack(const string &target){
+FragTrap::funZerkerAttack(const string &target) {
 
     cout << this->_name << ": I'm a sexy dinosaur! Rawr!" << endl;
     cout << this->_name << " hits " << target << " with a Candy Cane and deals " \
@@ -213,37 +216,40 @@ FragTrap::vaultHunter_dot_exe(const string &target) {
 
     cout << this->_name << ": Place your bets!" << endl;
 
-    int i;
-    srand (time(NULL));
-    i = rand() % 5 + 1;
+    int arr[] = {1, 2, 3, 4, 5};
+    int random;
+
+    random = rand() % 5;
 
     if (this->_energyPoints >= 25) {
-        if (i == 1) {
+        if (arr[random] == 1) {
             this->funZerkerAttack(target);
+            this->_energyPoints -= 25;
             return this->_funZerkerAttackDamage;
-        }
-        if (i == 2) {
+        } else if (arr[random] == 2) {
             this->meatUnicycleAttack(target);
+            this->_energyPoints -= 25;
             return this->_meatUnicycleAttackDamage;
-        }
-        if (i == 3) {
+        } else if (arr[random] == 3) {
             this->shhhTrapAttack(target);
+            this->_energyPoints -= 25;
             return this->_shhhTrapAttackDamage;
-        }
-        if (i == 4) {
+        } else if (arr[random] == 4) {
             this->laserInfernoAttack(target);
+            this->_energyPoints -= 25;
             return this->_laserInfernoAttackDamage;
-        }
-        if (i == 5) {
+        } else if (arr[random] == 5) {
             this->torgueFiestaAttack(target);
+            this->_energyPoints -= 25;
             return this->_torgueFiestaAttackDamage;
+        } else {
+            this->_energyPoints -= 25;
+            return (0);
         }
-        this->_energyPoints -= 25;
     } else {
         cout << this->_name << ": Darn, Eriduim cells are Drained!!" << endl;
         return (0);
     }
-    return (0);
 }
 
 /* <------------------>    VaultHunter.exe Above    <------------------> */
