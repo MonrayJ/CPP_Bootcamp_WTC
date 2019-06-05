@@ -10,7 +10,7 @@ FragTrap::FragTrap(void) {
 
 FragTrap::FragTrap(string name) {
 
-    cout << "Ohhh look... a creapy door in a cave! Knock-Knock!!" << endl;
+    cout << "Ohhh look... a creapy door in a cave! Knock-Knock!!" << std::endl;
 
     this->_name = name;
     this->_hitPoints = 100;
@@ -35,10 +35,10 @@ FragTrap::FragTrap(string name) {
 FragTrap::~FragTrap() {
 
     if (this->_hitPoints <= 0) {
-        cout << "Oh yeah? Well, uh... yeah." << endl;
+        cout << "Oh yeah? Well, uh... yeah." << std::endl;
         return;
     } else
-        cout << "Don't tell me that wasn't awesome" << endl;
+        cout << "Don't tell me that wasn't awesome" << std::endl;
     return;
 }
 
@@ -104,12 +104,12 @@ FragTrap::takeDamage(unsigned amount) {
     damage = amount - (this->_armourDamageReduction);
     if (damage >= this->_hitPoints) {
         this->_hitPoints = 0;
-        cout << this->_name << ": Recompiling combat code, Unit nonOperational!" << endl;
+        cout << this->_name << ": Recompiling combat code, Unit nonOperational!" << std::endl;
         return;
     } else {
         this->_hitPoints -= damage;
-        cout << this->_name << ": Ow hohoho, that hurts! Yipes!" << endl;
-        cout << this->_name << " took " << damage << " damage" << endl;
+        cout << this->_name << ": Ow hohoho, that hurts! Yipes!" << std::endl;
+        cout << this->_name << " took " << damage << " damage" << std::endl;
         return;
     }
 }
@@ -118,13 +118,13 @@ void
 FragTrap::repair(unsigned amount) {
     if (this->_hitPoints > amount) {
         this->_hitPoints = 100;
-        cout << this->_name << ": Health! Eww, what flavor is red?" << endl;
-        cout << this->_name << " recovered all his health" << endl;
+        cout << this->_name << ": Health! Eww, what flavor is red?" << std::endl;
+        cout << this->_name << " recovered all his health" << std::endl;
         return;
     } else {
         this->_hitPoints += amount;
-        cout << this->_name << ": Sweet life juice!" << endl;
-        cout << this->_name << " recovered " << amount << " hitPoints" << endl;
+        cout << this->_name << ": Sweet life juice!" << std::endl;
+        cout << this->_name << " recovered " << amount << " hitPoints" << std::endl;
         return;
     }
 }
@@ -132,7 +132,7 @@ FragTrap::repair(unsigned amount) {
 void
 FragTrap::levelUp() {
     this->_level++;
-    cout << this->_name << " Leveled up" << endl;
+    cout << this->_name << " Leveled up" << std::endl;
 }
 
 /* <------------------>    HealthMethods Above    <------------------> */
@@ -143,7 +143,7 @@ void
 FragTrap::rangedAttack(const string &target) {
 
     cout << this->_name << " attacks " << target << " at range, causing " \
- << this->_rangedAttackDamage << " points of damage!" << endl;
+ << this->_rangedAttackDamage << " points of damage!" << std::endl;
 
     return;
 }
@@ -151,8 +151,8 @@ FragTrap::rangedAttack(const string &target) {
 void
 FragTrap::meleeAttack(const string &target) {
 
-    cout << this->_name << " melee attacks " << target << " causing " \
- << this->_meleeAttackDamage << " points of damage!" << endl;
+    cout << this->_name << " melee attacks " << target << " causing "
+    << this->_meleeAttackDamage << " points of damage!" << std::endl;
 
     return;
 }
@@ -160,9 +160,9 @@ FragTrap::meleeAttack(const string &target) {
 void
 FragTrap::funZerkerAttack(const string &target) {
 
-    cout << this->_name << ": I'm a sexy dinosaur! Rawr!" << endl;
+    cout << this->_name << ": I'm a sexy dinosaur! Rawr!" << std::endl;
     cout << this->_name << " hits " << target << " with a Candy Cane and deals " \
- << this->_funZerkerAttackDamage << " points of damage!" << endl;
+ << this->_funZerkerAttackDamage << " points of damage!" << std::endl;
 
     return;
 }
@@ -170,9 +170,9 @@ FragTrap::funZerkerAttack(const string &target) {
 void
 FragTrap::meatUnicycleAttack(const string &target) {
 
-    cout << this->_name << ": It's the only way to stop the voices!" << endl;
+    cout << this->_name << ": It's the only way to stop the voices!" << std::endl;
     cout << this->_name << " uses Siren Powers to cast a meat tornado at " << target << " causing " \
- << this->_meatUnicycleAttackDamage << " points of damage!" << endl;
+ << this->_meatUnicycleAttackDamage << " points of damage!" << std::endl;
 
     return;
 }
@@ -180,9 +180,9 @@ FragTrap::meatUnicycleAttack(const string &target) {
 void
 FragTrap::shhhTrapAttack(const string &target) {
 
-    cout << this->_name << ": I'm a robot ninja..." << endl;
+    cout << this->_name << ": I'm a robot ninja..." << std::endl;
     cout << this->_name << " sneak attacks " << target << " from behind, causing " \
- << this->_shhhTrapAttackDamage << " points of damage!" << endl;
+ << this->_shhhTrapAttackDamage << " points of damage!" << std::endl;
 
     return;
 }
@@ -190,9 +190,9 @@ FragTrap::shhhTrapAttack(const string &target) {
 void
 FragTrap::laserInfernoAttack(const string &target) {
 
-    cout << this->_name << ": (unintelligible snarling)" << endl;
+    cout << this->_name << ": (unintelligible snarling)" << std::endl;
     cout << this->_name << " sets " << target << " ablaze, causing " \
- << this->_laserInfernoAttackDamage << " points of damage!" << endl;
+ << this->_laserInfernoAttackDamage << " points of damage!" << std::endl;
 
     return;
 }
@@ -200,9 +200,9 @@ FragTrap::laserInfernoAttack(const string &target) {
 void
 FragTrap::torgueFiestaAttack(const string &target) {
 
-    cout << this->_name << ": It's time for my free grenade giveaway!" << endl;
+    cout << this->_name << ": It's time for my free grenade giveaway!" << std::endl;
     cout << this->_name << " hits " << target << " in the face with a grenade, causing " \
- << this->_torgueFiestaAttackDamage << " points of damage!" << endl;
+ << this->_torgueFiestaAttackDamage << " points of damage!" << std::endl;
 
     return;
 }
@@ -214,7 +214,7 @@ FragTrap::torgueFiestaAttack(const string &target) {
 unsigned
 FragTrap::vaultHunter_dot_exe(const string &target) {
 
-    cout << this->_name << ": Place your bets!" << endl;
+    cout << this->_name << ": Place your bets!" << std::endl;
 
     int arr[] = {1, 2, 3, 4, 5};
     int random;
@@ -247,7 +247,7 @@ FragTrap::vaultHunter_dot_exe(const string &target) {
             return (0);
         }
     } else {
-        cout << this->_name << ": Darn, Eriduim cells are Drained!!" << endl;
+        cout << this->_name << ": Darn, Eriduim cells are Drained!!" << std::endl;
         return (0);
     }
 }

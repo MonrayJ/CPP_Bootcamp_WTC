@@ -2,50 +2,50 @@
 // Created by monray1 on 04/06/2019.
 //
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-ScavTrap::ScavTrap(void){
+FragTrap::FragTrap(void) {
     return;
 }
 
-ScavTrap::ScavTrap(string name) {
+FragTrap::FragTrap(string name) {
 
-    cout << "Who goes there?? Angel? Activate All Defence Systems!!" << std::endl;
+    cout << "Ohhh look... a creapy door in a cave! Knock-Knock!!" << std::std::endl;
 
     this->_name = name;
     this->_hitPoints = 100;
     this->_maxHitPoints = 100;
-    this->_energyPoints = 50;
-    this->_maxEnergyPoints = 50;
-    this->_armourDamageReduction = 3;
+    this->_energyPoints = 100;
+    this->_maxEnergyPoints = 100;
+    this->_armourDamageReduction = 5;
     this->_level = 1;
     //  standard
     this->_rangedAttackDamage = 20;
-    this->_meleeAttackDamage = 15;
+    this->_meleeAttackDamage = 30;
     //  special
-    this->_spikeTrapAttackDamage = 25;
-    this->_tripWireAttackDamage = 45;
-    this->_freezeTrapAttackDamage = 35;
-    this->_mountedTurretAttackDamage = 50;
-    this->_explosiveBarrelAttackDamage = 60;
+    this->_funZerkerAttackDamage = 5;
+    this->_meatUnicycleAttackDamage = 45;
+    this->_shhhTrapAttackDamage = 35;
+    this->_laserInfernoAttackDamage = 50;
+    this->_torgueFiestaAttackDamage = 60;
 
     return;
 }
 
-ScavTrap::~ScavTrap() {
+FragTrap::~FragTrap() {
 
     if (this->_hitPoints <= 0) {
-        cout << "Defeated!! impossible" << std::endl;
+        cout << "Oh yeah? Well, uh... yeah." << std::endl;
         return;
     } else
-        cout << "Go back from whence you came!" << std::endl;
+        cout << "Don't tell me that wasn't awesome" << std::endl;
     return;
 }
 
 /* <------------------>    Operator Below    <------------------> */
 
-ScavTrap
-&ScavTrap::operator=(ScavTrap const &overload) {
+FragTrap
+&FragTrap::operator=(FragTrap const &overload) {
     this->_name = overload._name;
     this->_hitPoints = overload._hitPoints;
     this->_maxHitPoints = overload._maxHitPoints;
@@ -55,11 +55,11 @@ ScavTrap
     this->_meleeAttackDamage = overload._meleeAttackDamage;
     this->_rangedAttackDamage = overload._rangedAttackDamage;
     this->_armourDamageReduction = overload._armourDamageReduction;
-    this->_spikeTrapAttackDamage = overload._spikeTrapAttackDamage;
-    this->_tripWireAttackDamage = overload._tripWireAttackDamage;
-    this->_freezeTrapAttackDamage = overload._freezeTrapAttackDamage;
-    this->_mountedTurretAttackDamage = overload._mountedTurretAttackDamage;
-    this->_explosiveBarrelAttackDamage = overload._explosiveBarrelAttackDamage;
+    this->_funZerkerAttackDamage = overload._funZerkerAttackDamage;
+    this->_meatUnicycleAttackDamage = overload._meatUnicycleAttackDamage;
+    this->_shhhTrapAttackDamage = overload._shhhTrapAttackDamage;
+    this->_laserInfernoAttackDamage = overload._laserInfernoAttackDamage;
+    this->_torgueFiestaAttackDamage = overload._torgueFiestaAttackDamage;
     return (*this);
 }
 
@@ -68,27 +68,27 @@ ScavTrap
 /* <------------------>    GetMethods Below    <------------------> */
 
 string
-ScavTrap::getName(void) {
+FragTrap::getName(void) {
     return (this->_name);
 }
 
 unsigned
-ScavTrap::getHitPoints() {
+FragTrap::getHitPoints() {
     return (this->_hitPoints);
 }
 
 unsigned
-ScavTrap::getRangedAttackDamage(void) {
+FragTrap::getRangedAttackDamage(void) {
     return (this->_rangedAttackDamage);
 }
 
 unsigned
-ScavTrap::getMeleeAttackDamage(void) {
+FragTrap::getMeleeAttackDamage(void) {
     return (this->_meleeAttackDamage);
 }
 
 unsigned
-ScavTrap::getArmourDamageReduction(void) {
+FragTrap::getArmourDamageReduction(void) {
     return (this->_armourDamageReduction);
 }
 
@@ -97,7 +97,7 @@ ScavTrap::getArmourDamageReduction(void) {
 /* <------------------>    HealthMethods Below    <------------------> */
 
 void
-ScavTrap::takeDamage(unsigned amount) {
+FragTrap::takeDamage(unsigned amount) {
 
     unsigned damage;
 
@@ -108,29 +108,29 @@ ScavTrap::takeDamage(unsigned amount) {
         return;
     } else {
         this->_hitPoints -= damage;
-        cout << this->_name << ": Who are you to Strike at me?" << std::endl;
+        cout << this->_name << ": Ow hohoho, that hurts! Yipes!" << std::endl;
         cout << this->_name << " took " << damage << " damage" << std::endl;
         return;
     }
 }
 
 void
-ScavTrap::repair(unsigned amount) {
+FragTrap::repair(unsigned amount) {
     if (this->_hitPoints > amount) {
         this->_hitPoints = 100;
-        cout << this->_name << ": Red liquid, Give me STRENGTH!!" << std::endl;
+        cout << this->_name << ": Health! Eww, what flavor is red?" << std::endl;
         cout << this->_name << " recovered all his health" << std::endl;
         return;
     } else {
         this->_hitPoints += amount;
-        cout << this->_name << ": Nectar of life!" << std::endl;
+        cout << this->_name << ": Sweet life juice!" << std::endl;
         cout << this->_name << " recovered " << amount << " hitPoints" << std::endl;
         return;
     }
 }
 
 void
-ScavTrap::levelUp() {
+FragTrap::levelUp() {
     this->_level++;
     cout << this->_name << " Leveled up" << std::endl;
 }
@@ -140,7 +140,7 @@ ScavTrap::levelUp() {
 /* <------------------>    AttackMethods Below    <------------------> */
 
 void
-ScavTrap::rangedAttack(const string &target) {
+FragTrap::rangedAttack(const string &target) {
 
     cout << this->_name << " attacks " << target << " at range, causing " \
  << this->_rangedAttackDamage << " points of damage!" << std::endl;
@@ -149,7 +149,7 @@ ScavTrap::rangedAttack(const string &target) {
 }
 
 void
-ScavTrap::meleeAttack(const string &target) {
+FragTrap::meleeAttack(const string &target) {
 
     cout << this->_name << " melee attacks " << target << " causing " \
  << this->_meleeAttackDamage << " points of damage!" << std::endl;
@@ -158,51 +158,51 @@ ScavTrap::meleeAttack(const string &target) {
 }
 
 void
-ScavTrap::spikeTrapAttack(const string &target) {
+FragTrap::funZerkerAttack(const string &target) {
 
-    cout << this->_name << ": Your Blindness will be your end!" << std::endl;
-    cout << this->_name << " witnesses " << target << " trigger a spike trap dealing " \
- << this->_spikeTrapAttackDamage << " points of damage!" << std::endl;
-
-    return;
-}
-
-void
-ScavTrap::tripWireAttack(const string &target) {
-
-    cout << this->_name << ": Did't see that one did ya?" << std::endl;
-    cout << this->_name << " witnesses " << target << " triggering a trip wire dealing " \
- << this->_tripWireAttackDamage << " points of damage!" << std::endl;
+    cout << this->_name << ": I'm a sexy dinosaur! Rawr!" << std::endl;
+    cout << this->_name << " hits " << target << " with a Candy Cane and deals " \
+ << this->_funZerkerAttackDamage << " points of damage!" << std::endl;
 
     return;
 }
 
 void
-ScavTrap::freezeTrapAttack(const string &target) {
+FragTrap::meatUnicycleAttack(const string &target) {
 
-    cout << this->_name << ": Ohhh that's cold..." << std::endl;
-    cout << this->_name << " witnesses " << target << " triggering a cryo trap dealing " \
- << this->_freezeTrapAttackDamage << " points of damage!" << std::endl;
+    cout << this->_name << ": It's the only way to stop the voices!" << std::endl;
+    cout << this->_name << " uses Siren Powers to cast a meat tornado at " << target << " causing " \
+ << this->_meatUnicycleAttackDamage << " points of damage!" << std::endl;
 
     return;
 }
 
 void
-ScavTrap::mountedTurretAttack(const string &target) {
+FragTrap::shhhTrapAttack(const string &target) {
+
+    cout << this->_name << ": I'm a robot ninja..." << std::endl;
+    cout << this->_name << " sneak attacks " << target << " from behind, causing " \
+ << this->_shhhTrapAttackDamage << " points of damage!" << std::endl;
+
+    return;
+}
+
+void
+FragTrap::laserInfernoAttack(const string &target) {
 
     cout << this->_name << ": (unintelligible snarling)" << std::endl;
-    cout << this->_name << " witnesses " << target << " being gunned down dealing " \
- << this->_mountedTurretAttackDamage << " points of damage!" << std::endl;
+    cout << this->_name << " sets " << target << " ablaze, causing " \
+ << this->_laserInfernoAttackDamage << " points of damage!" << std::endl;
 
     return;
 }
 
 void
-ScavTrap::explosiveBarrelAttack(const string &target) {
+FragTrap::torgueFiestaAttack(const string &target) {
 
-    cout << this->_name << ": Heads up!!" << std::endl;
-    cout << this->_name << " hits " << target << " with a explosive barrel from above, dealing " \
- << this->_explosiveBarrelAttackDamage << " points of damage!" << std::endl;
+    cout << this->_name << ": It's time for my free grenade giveaway!" << std::endl;
+    cout << this->_name << " hits " << target << " in the face with a grenade, causing " \
+ << this->_torgueFiestaAttackDamage << " points of damage!" << std::endl;
 
     return;
 }
@@ -212,9 +212,9 @@ ScavTrap::explosiveBarrelAttack(const string &target) {
 /* <------------------>    VaultHunter.exe Below    <------------------> */
 
 unsigned
-ScavTrap::challengeNewcomer(const string &target) {
+FragTrap::vaultHunter_dot_exe(const string &target) {
 
-    cout << this->_name << ": Aha ha ha, walked right into it..." << std::endl;
+    cout << this->_name << ": Place your bets!" << std::endl;
 
     int arr[] = {1, 2, 3, 4, 5};
     int random;
@@ -223,31 +223,31 @@ ScavTrap::challengeNewcomer(const string &target) {
 
     if (this->_energyPoints >= 25) {
         if (arr[random] == 1) {
-            this->spikeTrapAttack(target);
+            this->funZerkerAttack(target);
             this->_energyPoints -= 25;
-            return this->_spikeTrapAttackDamage;
+            return this->_funZerkerAttackDamage;
         } else if (arr[random] == 2) {
-            this->tripWireAttack(target);
+            this->meatUnicycleAttack(target);
             this->_energyPoints -= 25;
-            return this->_tripWireAttackDamage;
+            return this->_meatUnicycleAttackDamage;
         } else if (arr[random] == 3) {
-            this->freezeTrapAttack(target);
+            this->shhhTrapAttack(target);
             this->_energyPoints -= 25;
-            return this->_freezeTrapAttackDamage;
+            return this->_shhhTrapAttackDamage;
         } else if (arr[random] == 4) {
-            this->mountedTurretAttack(target);
+            this->laserInfernoAttack(target);
             this->_energyPoints -= 25;
-            return this->_mountedTurretAttackDamage;
+            return this->_laserInfernoAttackDamage;
         } else if (arr[random] == 5) {
-            this->explosiveBarrelAttack(target);
+            this->torgueFiestaAttack(target);
             this->_energyPoints -= 25;
-            return this->_explosiveBarrelAttackDamage;
+            return this->_torgueFiestaAttackDamage;
         } else {
             this->_energyPoints -= 25;
             return (0);
         }
     } else {
-        cout << this->_name << ": Noo!! Eriduim cells need be replenished!!" << std::endl;
+        cout << this->_name << ": Darn, Eriduim cells are Drained!!" << std::endl;
         return (0);
     }
 }

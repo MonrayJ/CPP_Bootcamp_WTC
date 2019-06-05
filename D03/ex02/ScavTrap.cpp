@@ -4,13 +4,13 @@
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void){
+ScavTrap::ScavTrap(void) {
     return;
 }
 
 ScavTrap::ScavTrap(string name) {
 
-    cout << "Who goes there?? Angel? Activate All Defence Systems!!" << std::endl;
+    cout << "Who goes there?? Angel? Activate All Defence Systems!!" << endl;
 
     this->_name = name;
     this->_hitPoints = 100;
@@ -35,10 +35,10 @@ ScavTrap::ScavTrap(string name) {
 ScavTrap::~ScavTrap() {
 
     if (this->_hitPoints <= 0) {
-        cout << "Defeated!! impossible" << std::endl;
+        cout << "Defeated!! impossible" << endl;
         return;
     } else
-        cout << "Go back from whence you came!" << std::endl;
+        cout << "Go back from whence you came!" << endl;
     return;
 }
 
@@ -104,12 +104,12 @@ ScavTrap::takeDamage(unsigned amount) {
     damage = amount - (this->_armourDamageReduction);
     if (damage >= this->_hitPoints) {
         this->_hitPoints = 0;
-        cout << this->_name << ": Recompiling combat code, Unit nonOperational!" << std::endl;
+        cout << this->_name << ": Recompiling combat code, Unit nonOperational!" << endl;
         return;
     } else {
         this->_hitPoints -= damage;
-        cout << this->_name << ": Who are you to Strike at me?" << std::endl;
-        cout << this->_name << " took " << damage << " damage" << std::endl;
+        cout << this->_name << ": Who are you to Strike at me?" << endl;
+        cout << this->_name << " took " << damage << " damage" << endl;
         return;
     }
 }
@@ -118,13 +118,13 @@ void
 ScavTrap::repair(unsigned amount) {
     if (this->_hitPoints > amount) {
         this->_hitPoints = 100;
-        cout << this->_name << ": Red liquid, Give me STRENGTH!!" << std::endl;
-        cout << this->_name << " recovered all his health" << std::endl;
+        cout << this->_name << ": Red liquid, Give me STRENGTH!!" << endl;
+        cout << this->_name << " recovered all his health" << endl;
         return;
     } else {
         this->_hitPoints += amount;
-        cout << this->_name << ": Nectar of life!" << std::endl;
-        cout << this->_name << " recovered " << amount << " hitPoints" << std::endl;
+        cout << this->_name << ": Nectar of life!" << endl;
+        cout << this->_name << " recovered " << amount << " hitPoints" << endl;
         return;
     }
 }
@@ -132,7 +132,7 @@ ScavTrap::repair(unsigned amount) {
 void
 ScavTrap::levelUp() {
     this->_level++;
-    cout << this->_name << " Leveled up" << std::endl;
+    cout << this->_name << " Leveled up" << endl;
 }
 
 /* <------------------>    HealthMethods Above    <------------------> */
@@ -143,7 +143,7 @@ void
 ScavTrap::rangedAttack(const string &target) {
 
     cout << this->_name << " attacks " << target << " at range, causing " \
- << this->_rangedAttackDamage << " points of damage!" << std::endl;
+ << this->_rangedAttackDamage << " points of damage!" << endl;
 
     return;
 }
@@ -152,7 +152,7 @@ void
 ScavTrap::meleeAttack(const string &target) {
 
     cout << this->_name << " melee attacks " << target << " causing " \
- << this->_meleeAttackDamage << " points of damage!" << std::endl;
+ << this->_meleeAttackDamage << " points of damage!" << endl;
 
     return;
 }
@@ -160,9 +160,9 @@ ScavTrap::meleeAttack(const string &target) {
 void
 ScavTrap::spikeTrapAttack(const string &target) {
 
-    cout << this->_name << ": Your Blindness will be your end!" << std::endl;
+    cout << this->_name << ": Your Blindness will be your end!" << endl;
     cout << this->_name << " witnesses " << target << " trigger a spike trap dealing " \
- << this->_spikeTrapAttackDamage << " points of damage!" << std::endl;
+ << this->_spikeTrapAttackDamage << " points of damage!" << endl;
 
     return;
 }
@@ -170,9 +170,9 @@ ScavTrap::spikeTrapAttack(const string &target) {
 void
 ScavTrap::tripWireAttack(const string &target) {
 
-    cout << this->_name << ": Did't see that one did ya?" << std::endl;
+    cout << this->_name << ": Did't see that one did ya?" << endl;
     cout << this->_name << " witnesses " << target << " triggering a trip wire dealing " \
- << this->_tripWireAttackDamage << " points of damage!" << std::endl;
+ << this->_tripWireAttackDamage << " points of damage!" << endl;
 
     return;
 }
@@ -180,9 +180,9 @@ ScavTrap::tripWireAttack(const string &target) {
 void
 ScavTrap::freezeTrapAttack(const string &target) {
 
-    cout << this->_name << ": Ohhh that's cold..." << std::endl;
+    cout << this->_name << ": Ohhh that's cold..." << endl;
     cout << this->_name << " witnesses " << target << " triggering a cryo trap dealing " \
- << this->_freezeTrapAttackDamage << " points of damage!" << std::endl;
+ << this->_freezeTrapAttackDamage << " points of damage!" << endl;
 
     return;
 }
@@ -190,9 +190,9 @@ ScavTrap::freezeTrapAttack(const string &target) {
 void
 ScavTrap::mountedTurretAttack(const string &target) {
 
-    cout << this->_name << ": (unintelligible snarling)" << std::endl;
+    cout << this->_name << ": (unintelligible snarling)" << endl;
     cout << this->_name << " witnesses " << target << " being gunned down dealing " \
- << this->_mountedTurretAttackDamage << " points of damage!" << std::endl;
+ << this->_mountedTurretAttackDamage << " points of damage!" << endl;
 
     return;
 }
@@ -200,9 +200,9 @@ ScavTrap::mountedTurretAttack(const string &target) {
 void
 ScavTrap::explosiveBarrelAttack(const string &target) {
 
-    cout << this->_name << ": Heads up!!" << std::endl;
+    cout << this->_name << ": Heads up!!" << endl;
     cout << this->_name << " hits " << target << " with a explosive barrel from above, dealing " \
- << this->_explosiveBarrelAttackDamage << " points of damage!" << std::endl;
+ << this->_explosiveBarrelAttackDamage << " points of damage!" << endl;
 
     return;
 }
@@ -214,7 +214,7 @@ ScavTrap::explosiveBarrelAttack(const string &target) {
 unsigned
 ScavTrap::challengeNewcomer(const string &target) {
 
-    cout << this->_name << ": Aha ha ha, walked right into it..." << std::endl;
+    cout << this->_name << ": Aha ha ha, walked right into it..." << endl;
 
     int arr[] = {1, 2, 3, 4, 5};
     int random;
@@ -247,7 +247,7 @@ ScavTrap::challengeNewcomer(const string &target) {
             return (0);
         }
     } else {
-        cout << this->_name << ": Noo!! Eriduim cells need be replenished!!" << std::endl;
+        cout << this->_name << ": Noo!! Eriduim cells need be replenished!!" << endl;
         return (0);
     }
 }
