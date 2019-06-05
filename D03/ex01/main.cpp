@@ -38,7 +38,7 @@ int main() {
         } else if (sc4v_tp.getHitPoints() > 0 && fr4g_tp.getHitPoints() > 0 && (i == 7 || i == 14 || i == 21)) {
             cout << sc4v_tp.getName() << ": A new Challenger I see!" << endl;
             fr4g_tp.takeDamage(sc4v_tp.challengeNewcomer(fr4g_tp.getName()) - fr4g_tp.getArmourDamageReduction());
-        } else {
+        } else if (i > 21) {
             cout << fr4g_tp.getName() << ": Yay! We both win!" << endl;
             return (0);
         }
@@ -51,8 +51,9 @@ int main() {
             cout << fr4g_tp.getName() << " Returned to the Metal scrap yard from whence he came!" << endl;
             sc4v_tp.levelUp();
             return (0);
-        } else
-            i++;
+        }
+        i++;
+
     }
     return (0);
 
