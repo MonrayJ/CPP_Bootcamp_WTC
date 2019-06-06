@@ -10,13 +10,16 @@
 #include <cstdlib>
 #include <ctime>
 
+using namespace std;
+
 class ClapTrap {
 
-    ClapTrap(void);
+public:
+
     ClapTrap(string);
     ~ClapTrap(void);
 
-//    Operator
+    Operator
     ClapTrap &operator=(ClapTrap const &overload);
 
 //    Health
@@ -39,9 +42,9 @@ class ClapTrap {
     unsigned    getRangedAttackDamage(void);
     unsigned    getMeleeAttackDamage(void);
 
-private:
+protected:
 
-//    Attributes
+    Attributes
     string      _name;
     unsigned    _hitPoints;
     unsigned    _maxHitPoints;

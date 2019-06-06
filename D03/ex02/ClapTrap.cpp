@@ -10,12 +10,7 @@ ClapTrap::ClapTrap(void){
 
 ClapTrap::ClapTrap(string name) {
 
-    cout << "New Claptrap unit: " << name << "." << std::endl;
-
-    this->_name = name;
-    this->_hitPoints = 100;
-    this->_maxHitPoints = 100;
-    this->_level = 1;
+    cout << "New Claptrap unit: " << name << "." << endl;
 
     return;
 }
@@ -45,7 +40,7 @@ ClapTrap::getRangedAttackDamage() {
 }
 
 unsigned ClapTrap::getMeleeAttackDamage() {
-    return this->_meleeAttackDamage
+    return this->_meleeAttackDamage;
 }
 
 unsigned
